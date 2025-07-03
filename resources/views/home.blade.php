@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +29,32 @@
                     transform: translateY(-15px);
                 }
             }
+
+            .box h2::after {
+                content: "";
+                width: 5px;
+                height: 20px;
+                background: black;
+                display: inline-block;
+            }
+
+            .box h2 {
+                display: flex;
+
+                gap: 2px;
+            }
+
+            @keyframes cursor-blink {
+                0% {
+                    opacity: 0;
+                }
+            }
+
+            .box h2::after {
+                /*code commented for brevity*/
+                animation: cursor-blink 1.5s steps(2) infinite;
+            }
+
         </style>
     </head>
     <body class="antialiased">
@@ -63,7 +90,25 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Hello World
+                        <p>// Hello World</p>
+                        <p> // </p>
+
+                        <?php
+
+                        $endloopnumber = mt_rand(3,10);
+
+                        ?>
+
+                        @for ($i = 0; $i < $endloopnumber; $i++)
+
+                            <?php $n = rand(0,7); ?>
+                            <p>// {{ $words[$n]['test'] }} ...</p>
+                        @endfor
+                        <div class="box" >
+                            <h2>// End sequence</h2>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

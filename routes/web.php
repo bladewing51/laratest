@@ -14,5 +14,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $words = [
+        [
+            'id' => 1,
+            'test' => 'Checking Identification'
+        ],
+        [
+            'id' => 2,
+            'test' => 'Loading Parameters'
+        ],
+        [
+            'id' => 3,
+            'test' => 'Syncing Database'
+        ],
+        [
+            'id' => 4,
+            'test' => 'Creating Tokens'
+        ],
+        [
+            'id' => 5,
+            'test' => 'Pinging Active Hosts'
+        ],
+        [
+            'id' => 6,
+            'test' => 'Looking For Targets...ABORT!'
+        ],
+        [
+            'id' => 7,
+            'test' => 'Creating SSL Tunnel'
+        ],
+        [
+            'id' => 8,
+            'test' => 'Checking IP Blacklist'
+        ],
+
+    ];
+
+    return view('home', ['words' => $words]);
 });
